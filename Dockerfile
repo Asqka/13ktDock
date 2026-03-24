@@ -1,3 +1,3 @@
 FROM alpine:latest
-RUN echo "Build confitg ready" > /config.txt
-CMD ["sh","-c","echo 'App started' && cat /config.txt"]
+RUN echo "Congig loaded" > /app.log
+CMD ["sh","-c","echo 'App: $APP_ENV' && cat /app.log"]
