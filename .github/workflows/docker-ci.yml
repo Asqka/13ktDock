@@ -20,7 +20,7 @@ jobs:
       run: docker images
 
     - name: Run container in background
-      run: docker run-d --name bg-test alpine sleep 60
+      run: docker run -d --name bg-test alpine sleep 60
 
     - name: List running containers
       run: docker ps
