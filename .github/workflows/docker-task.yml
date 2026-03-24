@@ -23,10 +23,10 @@ jobs:
 
     - name: Run container in background 
       run: |
-      cid=$(docker run -d student-ci-app sh -c "sleep 120")
-      docker ps
-      docker stop $cid
-      docker rm $cid
-
+        cid=$(docker run -d student-ci-app sh -c "sleep 120")
+        docker ps
+        docker stop $cid
+        docker rm $cid
+  
     - name: Final step 
       run: echo "Pipeline completed"
