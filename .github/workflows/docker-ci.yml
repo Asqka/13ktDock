@@ -15,3 +15,17 @@ jobs:
 
     - name: Run Docker container
       run: docker run --rm my-app
+
+    - name: Show available images
+      run: docker images
+
+    - name: Run container in background
+      run: docker run-d --name bg-test alpine sleep 60
+
+    - name: List running containers
+      run: docker ps
+
+    - name: Stop and remove container
+      run: |
+        docker stop bg-test
+        docker rm bg-test
