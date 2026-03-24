@@ -29,3 +29,6 @@ jobs:
       run: |
         docker stop bg-test
         docker rm bg-test
+
+    - name: Run with environment variable
+      run: docker run --rm -e APP_ENV=ptoduction my-app
