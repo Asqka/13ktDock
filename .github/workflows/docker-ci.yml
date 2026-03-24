@@ -31,4 +31,4 @@ jobs:
         docker rm bg-test
 
     - name: Run with environment variable
-      run: docker run --rm APP_ENV=ptoduction my-app
+      run: docker run --rm -e APP_ENV=ptoduction my-app
