@@ -1,0 +1,32 @@
+name: Docker Student Task
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+ build-and-test:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout repository
+      uses:actions/checkout@v3
+
+    - name: Build Docker image
+      run: docker build -t student-ci-app .
+
+    - name: Run container with STUDENT_NAME
+      run: docker run --rm  -e STUDENT_NAME="ASYA" student-ci-app
+
+    - name: Docker List images
+      run: docker images
+
+    - name: Run container in background 
+      run: |
+      cid=$(docker run -d student-ci-app sh -c "sleep 120")
+      docker ps
+      docker stop $cid
+      docker rm $cid
+
+    - name: Final step 
+      run: echo "Pipeline completed"
